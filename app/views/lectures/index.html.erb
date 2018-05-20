@@ -1,0 +1,54 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
+<h1>Lectures</h1>
+<%= link_to 'New Lecture', new_lecture_path if can? :create, Lecture %>
+<br>
+      <br>
+<% @lectures.each do |lecture| %>
+  <div class="card">
+    <h5 class="card-header">
+      <%= lecture.title %>
+    </h5>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <%= link_to "Show Lecture", lecture.attachment_url %>
+        <br>
+        <span>Content : </span>
+        <p class="card-text">
+          <%= lecture.content.html_safe %>
+        </p>
+
+        <%= link_to like_lecture_path(lecture), method: :put do %>
+          Like
+          <%= lecture.get_likes.size %>
+            <% end %>
+              <%= link_to dislike_lecture_path(lecture), method: :put do %>
+                Dislike
+                <%= lecture.get_dislikes.size %>
+                  <% end %>
+                    <%= link_to spam_lecture_path(lecture) , method: :post do %>
+                      Spam
+                      <% if current_user.lectures.include?(lecture) %>
+                        1
+                        <% else %>
+                          0
+                          <% end %>
+                            <% end %>
+                              <br>
+                              <br>
+                              <%= link_to 'Edit', edit_lecture_path(lecture) if can? :update, Lecture %>
+                                <%= link_to 'View', lecture %>
+                                  <%=commontator_thread(lecture)%>
+
+
+    </div>
+    <br>
+   
+    <% end %>
+
+    <br><br>
+
+      
+      

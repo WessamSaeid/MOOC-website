@@ -1,0 +1,44 @@
+>>>given: array1, array2
+1- get size of array (var size)
+2- 3 cases to be identical 
+case:1) kolhom nfs l 7rof 
+intialize flag = 0 
+for(i=0,i<size,i++)
+{
+if(array1[i]!=array2[i])
+flag=1
+}
+if(flag==1){"identical"}
+else{
+case:2) l odd zy b3d
+intianlize arr1odd=[]
+intianlize arr2odd=[]
+for(i=1,i<size,i++)
+{
+arr1odd.add(array1[i])
+}
+for(i=1,i<size,i++)
+{
+arr2odd.add(array2[i])
+}
+for(i=1,i<size,i++)
+{
+for(j=1,j<size,i++)
+{
+if(arr1odd[i]==arr2odd[j])
+{
+arr2odd.remove(arr2odd[j])
+}
+}
+}
+if(arr2odd.size==0)
+{
+"identical"
+}
+else
+{
+case:3) l even zy b3d
+/////zy case 2 bs 7a5ly l array even
+}
+}
+
